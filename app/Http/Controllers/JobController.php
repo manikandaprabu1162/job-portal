@@ -75,7 +75,7 @@ class JobController extends Controller
                        ->filter()
                        ->values();
 
-        return view('jobs.index', compact('jobs', 'locations', 'jobTypes'));
+        return view('pages.home', compact('jobs', 'locations', 'jobTypes'));
     }
 
     /**
@@ -95,6 +95,6 @@ class JobController extends Controller
                           ->limit(3)
                           ->get();
 
-        return view('jobs.show', compact('job', 'relatedJobs'));
+        return view('pages.show', compact('job', 'relatedJobs'));
     }
 }
