@@ -74,7 +74,7 @@
                                 <i class="bi bi-briefcase-fill text-primary fs-5 mx-auto"></i>
                             </div>
                             <small class="text-secondary small">Experience</small>
-                            <span class="fw-bold">{{ $job->experience_required ?? 'Fresher' }}</span>
+                            <span class="fw-bold">{{ $job->experience_required ?? '-' }}</span>
                         </div>
                     </div>
                     <div class="col-md-3 col-6">
@@ -84,7 +84,7 @@
                                 <i class="bi bi-geo-alt-fill text-success fs-5 mx-auto"></i>
                             </div>
                             <small class="text-secondary small">Location</small>
-                            <span class="fw-bold">{{ $job->location ?? 'Remote' }}</span>
+                            <span class="fw-bold">{{ $job->location ?? '-' }}</span>
                         </div>
                     </div>
                     <div class="col-md-3 col-6">
@@ -94,7 +94,7 @@
                                 <i class="bi bi-clock-fill text-info fs-5 mx-auto"></i>
                             </div>
                             <small class="text-secondary small">Job Type</small>
-                            <span class="fw-bold">{{ $job->job_type ?? 'Full Time' }}</span>
+                            <span class="fw-bold">{{ $job->job_type ?? '-' }}</span>
                         </div>
                     </div>
                     <div class="col-md-3 col-6">
@@ -104,7 +104,7 @@
                                 <i class="bi bi-people-fill text-warning fs-5 mx-auto"></i>
                             </div>
                             <small class="text-secondary small">Vacancies</small>
-                            <span class="fw-bold">{{ $job->vacancies ?? 'Multiple' }}</span>
+                            <span class="fw-bold">{{ $job->vacancies ?? '-' }}</span>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
                             Job Description
                         </h4>
                         <div class="text-secondary lh-lg" style="font-size: 1.1rem;">
-                            {{ $job->job_description ?? 'No description provided.' }}
+                            {!! $job->job_description ?? '<em>No description provided.</em>' !!}
                         </div>
                     </div>
                 </div>
@@ -163,46 +163,6 @@
                     </div>
                 </div>
                 @endif
-
-                {{-- Benefits Card --}}
-                @if($job->benefits ?? false)
-                <div class="card border-0 shadow-sm rounded-4">
-                    <div class="card-body p-4 p-lg-5">
-                        <h4 class="fw-bold mb-4 d-flex align-items-center">
-                            <span class="bg-warning bg-opacity-10 rounded-3 p-2 me-3">
-                                <i class="bi bi-gift-fill text-warning"></i>
-                            </span>
-                            Benefits & Perks
-                        </h4>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-check-lg text-success fs-4"></i>
-                                    <span>Health Insurance</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-check-lg text-success fs-4"></i>
-                                    <span>Paid Time Off</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-check-lg text-success fs-4"></i>
-                                    <span>Remote Work Options</span>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-check-lg text-success fs-4"></i>
-                                    <span>401(k) Matching</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @endif
             </div>
 
             {{-- Right Column - Sidebar (4 cols) --}}
@@ -227,7 +187,7 @@
                             </button>
                             @endif
                             <p class="text-white-50 small mb-0">
-                                <i class="bi bi-clock me-1"></i>Applications close in 7 days
+                                <i class="bi bi-clock me-1"></i>Applications close soon
                             </p>
                         </div>
                     </div>
@@ -272,7 +232,7 @@
                                     <div>
                                         <small class="text-secondary d-block">Experience Level</small>
                                         <span
-                                            class="fw-semibold">{{ $job->experience_required ?? 'Entry Level' }}</span>
+                                            class="fw-semibold">{{ $job->experience_required ?? ' Not specified' }}</span>
                                     </div>
                                 </div>
 
@@ -282,17 +242,7 @@
                                     </div>
                                     <div>
                                         <small class="text-secondary d-block">Work Mode</small>
-                                        <span class="fw-semibold">{{ $job->work_mode ?? 'On-site' }}</span>
-                                    </div>
-                                </div>
-
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="bg-light rounded-3 p-2" style="width: 40px; height: 40px;">
-                                        <i class="bi bi-people text-warning"></i>
-                                    </div>
-                                    <div>
-                                        <small class="text-secondary d-block">Department</small>
-                                        <span class="fw-semibold">{{ $job->department ?? 'Engineering' }}</span>
+                                        <span class="fw-semibold">{{ $job->work_mode ?? 'Not specified' }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -325,11 +275,6 @@
                             <p class="text-secondary small text-center mb-3">
                                 <i class="bi bi-geo-alt me-1"></i>{{ $job->location ?? 'Location not specified' }}
                             </p>
-
-                            <div class="d-flex justify-content-center gap-2">
-                                <span class="badge bg-light text-dark rounded-pill px-3 py-2">10-50 Employees</span>
-                                <span class="badge bg-light text-dark rounded-pill px-3 py-2">IT Services</span>
-                            </div>
                         </div>
                     </div>
 
@@ -379,27 +324,6 @@
                         </div>
                     </div>
                     @endif
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- Footer with Newsletter --}}
-    <div class="bg-white border-top mt-5">
-        <div class="container py-5">
-            <div class="row g-4 align-items-center">
-                <div class="col-lg-6">
-                    <h4 class="fw-bold mb-2">Don't miss out on your dream job!</h4>
-                    <p class="text-secondary mb-0">Get similar jobs sent to your inbox weekly</p>
-                </div>
-                <div class="col-lg-6">
-                    <div class="input-group">
-                        <input type="email" class="form-control form-control-lg border-0 bg-light rounded-4 py-3"
-                            placeholder="Enter your email">
-                        <button class="btn btn-primary rounded-4 px-5 fw-semibold" type="button">
-                            Subscribe <i class="bi bi-send ms-2"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>

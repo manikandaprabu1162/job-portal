@@ -6,6 +6,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\RichEditor;
 use Filament\Schemas\Schema;
 
 class JobForm
@@ -32,8 +33,19 @@ class JobForm
                 TextInput::make('job_type'),
                 TextInput::make('work_mode'),
                 TextInput::make('experience_required'),
-                Textarea::make('job_description')
-                    ->columnSpanFull(),
+                RichEditor::make('job_description')
+                    ->columnSpanFull()
+                    ->toolbarButtons([
+                        'bold',
+                        'italic',
+                        'underline',
+                        'strike',
+                        'bulletList',
+                        'orderedList',
+                        'blockquote',
+                        'codeBlock',
+                        'link',
+                    ]),
                 Textarea::make('requirements')
                     ->columnSpanFull(),
                 Textarea::make('skills_required')

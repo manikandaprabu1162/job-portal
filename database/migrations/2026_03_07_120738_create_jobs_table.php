@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('job_title');
             $table->string('company_name');
+            $table->integer('vacancies')->nullable();
             $table->string('location')->nullable();
             
             // Salary fields - structured for better querying
