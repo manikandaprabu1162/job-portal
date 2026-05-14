@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: job-portal
+    env: php
+    plan: free
+    buildCommand: |
+      composer install --no-dev --optimize-autoloader
+      npm install
+      npm run build
+      php artisan storage:link
+      chmod -R 775 storage bootstrap/cache
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
